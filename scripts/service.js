@@ -99,15 +99,68 @@ function disableDates(date) {
 
 $(document).ready(function(){
     $('#submit').click(function(){
-        $('input').each(function() {
-            if(!$(this).val()){
-                alert('Some fields are empty');
-               return false;
-            }else {
-                alert("Appointement booked succesfully ! Please close this window")
-                return false;
-            }
-        });
+
+        // Get the Login Name value and trim it
+        var email = $('#email').val();
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var dateInput = $('#dateInput').val();
+        var time = $('#time').val();
+        var spec = $('#spec').val();
+        var nameCard = $('#nameCard').val();
+        var cardNum = $('#cardNum').val();
+        var ccv = $('#ccv').val();
+        var expMonth = $('#expMonth').val();
+        var expYear = $('#expYear').val();
+
+        // Check if empty of not
+        if (email.length < 1) {
+            alert('email is empty.');
+            return false;
+        }
+        if (name.length < 1) {
+            alert('name is empty.');
+            return false;
+        }
+        if (phone.length < 1) {
+            alert('phone is empty.');
+            return false;
+        }
+        if (dateInput.length < 1) {
+            alert('date is empty.');
+            return false;
+        }
+        if (time.length < 1) {
+            alert('time is empty.');
+            return false;
+        }
+        if (spec.length < 1) {
+            alert('specialist is empty.');
+            return false;
+        }
+        if (nameCard.length < 1) {
+            alert('Card Name is empty.');
+            return false;
+        }
+        if (cardNum.length < 1) {
+            alert('card number is empty.');
+            return false;
+        }
+        if (ccv.length < 1) {
+            alert('ccv is empty.');
+            return false;
+        }
+        if (expMonth.length < 1) {
+            alert('Expiration month is empty.');
+            return false;
+        }
+        if (expYear.length < 1) {
+            alert('Expiration year is empty.');
+            return false;
+        } else {
+            alert('Succesfully booked !');
+            return false;
+        }
     });
     // phone validation, it calls validatePhone
     // and also some feedback as an Alert + putting a value in the input that shows the format required
@@ -116,7 +169,7 @@ $(document).ready(function(){
     $("#phone").on("change", function(){
         if (!validatePhone("phone")){
             alert("Wrong format for phone");
-            $("#phone").val("(xxxx)");
+            $("#phone").val("");
             $("#phone").addClass("error");
         }
         else {
@@ -177,7 +230,7 @@ $(document).ready(function(){
     $("#email").on("change", function(){
         if (!IsEmail("email")){
             alert("Wrong format for email");
-            $("#email").val("exemple@domain");
+            $("#email").val("");
             $("#email").addClass("error");
         }
         else {
