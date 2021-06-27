@@ -10,13 +10,72 @@ function validatePhone(txtPhone) {
     var a = document.getElementById(txtPhone).value;
     // This filter asks for something like (12345), so parentheses with any number (at least 1)
     // of digits
-    var filter = /^(\([-+]?[0-9]+)\)$/;
+    var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
     if (filter.test(a)) {
         return true;
     }
     else {
         return false;
     }
+}
+ function IsEmail(email) {
+  var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var email = document.getElementById(email).value;
+  if(!regex.test(email)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+ function IsName(name) {
+  var regex = /^[a-zA-Z]+$/;
+  var name = document.getElementById(name).value;
+  if(!regex.test(name)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+function isCCV(ccv){
+  var regex = /^[0-9]{3}$/;
+  var ccv = document.getElementById(ccv).value;
+  if(!regex.test(ccv)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+function isNumber(ccv){
+  var regex = /^[0-9]{16}$/;
+  var ccv = document.getElementById(ccv).value;
+  if(!regex.test(ccv)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+function isMonth(ccv){
+  var regex = /^[0-9]{2}$/;
+  var ccv = document.getElementById(ccv).value;
+  if(!regex.test(ccv)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+function isDate(ccv){
+  var regex = /^[0-9]{4}$/;
+  var ccv = document.getElementById(ccv).value;
+  if(!regex.test(ccv)) {
+    return false;
+  }else{
+    return true;
+  }
 }
 
 
@@ -37,8 +96,19 @@ function disableDates(date) {
 
 
 // HERE, JQuery "LISTENING" starts
-$(document).ready(function(){
 
+$(document).ready(function(){
+    $('#submit').click(function(){
+        $('input').each(function() {
+            if(!$(this).val()){
+                alert('Some fields are empty');
+               return false;
+            }else {
+                alert("Appointement booked succesfully ! Please close this window")
+                return false;
+            }
+        });
+    });
     // phone validation, it calls validatePhone
     // and also some feedback as an Alert + putting a value in the input that shows the format required
     // the "addClass" will use the class "error" defined in style.css and add it to the phone input
@@ -51,6 +121,87 @@ $(document).ready(function(){
         }
         else {
             $("#phone").removeClass("error");
+        }
+    });
+
+    $("#ccv").on("change", function(){
+        if (!isCCV("ccv")){
+            alert("Wrong format for ccv");
+            $("#ccv").val("");
+            $("#ccv").addClass("error");
+        }
+        else {
+            $("#ccv").removeClass("error");
+        }
+    });
+
+    $("#cardNum").on("change", function(){
+        if (!isNumber("cardNum")){
+            alert("Wrong format for card number");
+            $("#cardNum").val("");
+            $("#cardNum").addClass("error");
+        }
+        else {
+            $("#cardNum").removeClass("error");
+        }
+    });
+
+    $("#expYear").on("change", function(){
+        if (!isYear("expYear")){
+            alert("Wrong format for year");
+            $("#expYear").val("");
+            $("#expYear").addClass("error");
+        }
+        else {
+            $("#ccv").removeClass("error");
+        }
+    });
+
+    $("#expMonth").on("change", function(){
+        if (!isMonth("expMonth")){
+            alert("Wrong format for Month");
+            $("#expMonth").val("");
+            $("#expMonth").addClass("error");
+        }
+        else {
+            $("#ccv").removeClass("error");
+        }
+    });
+
+    $("#datepicker").datepicker( {
+        format: "mm-yyyy",
+        startView: "months", 
+        minViewMode: "months"
+    });
+
+    $("#email").on("change", function(){
+        if (!IsEmail("email")){
+            alert("Wrong format for email");
+            $("#email").val("exemple@domain");
+            $("#email").addClass("error");
+        }
+        else {
+            $("#email").removeClass("error");
+        }
+    });
+    $("#name").on("change", function(){
+        if (!IsName("name")){
+            alert("Wrong format for name");
+            $("#name").val("");
+            $("#name").addClass("error");
+        }
+        else {
+            $("#name").removeClass("error");
+        }
+    });
+    $("#nameCard").on("change", function(){
+        if (!IsName("nameCard")){
+            alert("Wrong format for name on card");
+            $("#nameCard").val("");
+            $("#nameCard").addClass("error");
+        }
+        else {
+            $("#nameCard").removeClass("error");
         }
     });
 
@@ -92,6 +243,19 @@ $(document).ready(function(){
         classes: {
             "ui-tooltip": "highlight"
         }
+    });
+     $("#loginForm").validate({
+        rules:{
+            firstname: 'required',
+        },
+    });
+
+    $("#submit").on('click', function () {
+           //This will check validation of form depending on rules
+           if($("#loginForm").valid())
+           {
+            alert("Wrong format");
+           }
     });
 
 

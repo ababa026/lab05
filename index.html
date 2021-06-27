@@ -41,7 +41,7 @@
 <!-- to just jump to parts of the page. What I put as First/Second/Third here would -->
 <!-- be sections in your page. -->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <img src="images/company_logo.png" alt="logo" style="width:60px;"><a class="navbar-brand" href="#">Navbar</a>
+    <img src="images/company_logo.png" alt="logo" style="width:60px;"><a class="navbar-brand" href="#">Physio Clinic</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,11 +76,11 @@
     -->
 
     <nav class="navbar bg-dark text-white p-3 my-3 ">
-        <h1 class = "display-4"><img src="images/company_logo.png" width="130" height="130"> Welcome to my Physiotherapy Clinic</h1>
+        <h1 class = "display-4"><img src="images/company_logo.png" width="130" height="130"> Welcome to my Physio Clinic</h1>
     </nav>
 
     <div class=" p-3 my-3 border bg-light">
-        <h1 class = "display-4"> About us</h1>
+        <h1 class = "display-4"><img src="images/icon.png" width="60" height="60"> About us</h1>
         <p class="p-4 my-3" style="font-size: 25px">We are a small clinic located in Smiths Falls Ontario</p>
         <p style="font-size: 25px; padding-left: 1.5rem">We are dedicated to providing the <strong>best</strong> care to our customers</p>
     </div>
@@ -156,7 +156,7 @@
                 </tr>
                 <tr>
                     <td>KNEE PAIN</td>
-                    <td>Knee pain gradually creeping into your life? Get more detailed information on our approach to treating knee pain.<br>50$/session <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <td>Knee pain gradually creeping into your life? Get more detailed information on our approach to treating knee pain.<br>50$/session <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"data-backdrop="static"  >
             Book appointement
         </button></td>
                 </tr>
@@ -189,7 +189,7 @@
     https://getbootstrap.com/docs/5.0/components/card/
     -->
     <div class = "container" id = "experts">
-    <h1>Meet the Physicians!</h1>
+    <h1><img src="images/pros.jpg" width="60" height="60">Meet the Physicians!</h1>
     <div class="row justify-content-around">
                 <div class="card" style="width: 18rem;">
             <img src="images/doctor3.jpg" class="rounded mx-auto d-block" alt="..." style="width:250px;height:200px;">
@@ -216,68 +216,62 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div id =""class="modal-dialog">
             <div class="modal-content">
-                <form class="row g-3">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input class="form-control" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Name</label>
-                            <input class="form-control" type="email" class="form-control" id="exampleInputPassword1" placeholder="Name">
-                          </div><br>
-                        <div class = "form-group">
-                            Date: <input class="form-control"  type="text" id="dateInput"></p>
-                        </div><br>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Time</label>
-                            <input class="form-control" type="time" class="form-control" id="exampleInputPassword1" placeholder="Time">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <select class="form-select" aria-label="Default select example">
-                              <option selected>Choose specialist</option>
-                              <option value="1">Dr . Alexa Milne</option>
-                              <option value="2">Dr . Sian Shepard</option>
-                              <option value="3">Dr . Ronny Bass</option>
-                            </select>
-                        </div><br>
-                    </fieldset>
+                <form id="loginForm"class="row g-3">
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input name="email"class="form-control" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Name</label>
+                        <input name="name"class="form-control"  class="form-control" id="name" placeholder="Name">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Phone</label>
+                        <input name="name"class="form-control" t class="form-control" id="phone" placeholder="Phone">
+                    </div><br>
+                    <div class = "form-group">
+                        Date: <input class="form-control"  type="text" id="dateInput"></p>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Time</label>
+                        <input class="control-label" type="time" class="form-control" id="exampleInputPassword1" placeholder="Time">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Choose specialist</option>
+                          <option value="1">Dr . Alexa Milne</option>
+                          <option value="2">Dr . Sian Shepard</option>
+                          <option value="3">Dr . Ronny Bass</option>
+                        </select>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Name on card</label>
+                        <input name="name"class="form-control"  class="form-control" id="nameCard" placeholder="Name on card">
+                    </div><br>
+                    <div class = "form-group">
+                        <p>Credit Card number: <input id ="cardNum"class = "form-control"type="text" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."placeholder="enter 16 digit of card"></p>
+                    </div>
+                    <div class = "form-group">
+                        <p>CV code: <input id = "ccv"type="text" class = "form-control" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
+                    </div>
+                    <div class = "form-group">
+                        <p>Expiry Month: <input id="expMonth" type="text"class = "form-control"  title="We ask for your credit card number in case of no-show, 20$ will be charged."placeholder="ex : 10"></p>
+                    </div>
+                    <div class = "form-group">
+                        <p>Expiry Year: <input  id = "expYear" type="text"class = "form-control" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."placeholder="ex : 2022"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         <button id="submit"type="button"class="btn btn-primary">Book appointement</button>
+                    </div>
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                     <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Go to payment</button>
-                </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-        <div class = "form-group">
-            <p>Name on card: <input class = "form-control" type="text" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
-        </div>
-        <div class = "form-group">
-            <p>Credit Card number: <input class = "form-control"type="text" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
-        </div>
-        <div class = "form-group">
-            <p>CV code: <input type="text" class = "form-control"id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
-        </div>
-        <div class = "form-group">
-            <p>Expiry Date: <input type="text"class = "form-control" id="debit" title="We ask for your credit card number in case of no-show, 20$ will be charged."></p>
-        </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModal" data-bs-toggle="modal" data-bs-dismiss="modal">Back to info</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
+    
 </div>
     <!--
     We can also use buttons to expand some hidden options
