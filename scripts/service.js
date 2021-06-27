@@ -131,7 +131,7 @@ $(document).ready(function(){
             return false;
         }
         if (time.length < 1) {
-            alert('time is empty.');
+            alert('Time is empty.');
             return false;
         }
         if (spec.length < 1) {
